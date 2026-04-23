@@ -18,6 +18,6 @@ void* vec_data(const Vector* vec);
 Vector* vec_new(size_t capacity);
 void vec_free(Vector* vec);
 int vec_push(Vector* vec, const void* element);
-void* vec_pop(Vector* vec);
+int vec_pop(Vector* vec);
 
 #endif // MY_VECTOR_LIBRARY_H

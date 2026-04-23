@@ -16,6 +16,7 @@ void* vec_data(const Vector* vec) {
 
 Vector* vec_new(size_t element_size) {
     Vector* vec = (Vector*) malloc(sizeof(Vector));   //Vector* vec = malloc(sizeof(Vector)); ??
+    if (!vec) return NULL;
     vec->capacity =0;
     vec->size = 0;
     vec->data = NULL;
@@ -42,5 +43,10 @@ int vec_push(Vector* vec, const void* element) {
     return 0;
 };
 
+int vec_pop(Vector* vec) {
+    if (!vec || vec->size == 0) return -1;
+    vec->size--;
+    return 0;
+};
 
 
