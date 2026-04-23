@@ -24,5 +24,8 @@ install: libmy_vector.a
 
 clean:
 	rm -f *.o *.a test example
-
+uninstall:
+	sudo rm -f /usr/local/include/my_vector.h
+	sudo rm -f /usr/local/lib/libmy_vector.a
+	@echo "Удаление завершено!"
 .PHONY: all test clean install
