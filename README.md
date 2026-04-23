@@ -51,7 +51,7 @@ int main() {
 ### Quick Installation
 
 ```bash
-git clone https://github.com/ваш-username/my_vector.git
+git clone https://github.com/your-username/my_vector.git
 cd my_vector
 
 make
