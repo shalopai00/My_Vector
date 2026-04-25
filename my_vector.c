@@ -68,4 +68,9 @@ int vec_reserve(Vector* vec, size_t capacity) {
     return 0;
 };
 
+void vec_clear(Vector* vec) {
+    if (!vec || vec->size == 0){return;}
+    vec->size = 0;
+};
+
 
