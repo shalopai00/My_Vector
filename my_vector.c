@@ -58,4 +58,14 @@ bool vec_empty(Vector* vec) {     // const Vector *vec ??
     if (!vec || vec->size == 0) {return true;} else {return false;}
 };
 
+int vec_reserve(Vector* vec, size_t capacity) {
+    if (!vec || vec->capacity>capacity){return -1;}
+    size_t new_capacity = capacity;
+    void *same_data = realloc(vec->data, new_capacity * vec->element_size);
+    if (same_data == NULL) { return -1; }
+    vec->data = same_data;
+    vec->capacity = new_capacity;
+    return 0;
+};
+
 
