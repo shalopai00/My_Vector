@@ -1,5 +1,6 @@
 #ifndef MY_VECTOR_LIBRARY_H
 #define MY_VECTOR_LIBRARY_H
+#include <stdbool.h>
 #include <stddef.h>
 
 typedef struct{
@@ -20,5 +21,6 @@ void vec_free(Vector* vec);
 int vec_push(Vector* vec, const void* element);
 int vec_pop(Vector* vec);
 void* vec_at(Vector* vec, size_t index);
+bool vec_empty(Vector* vec);
 
 #endif // MY_VECTOR_LIBRARY_H

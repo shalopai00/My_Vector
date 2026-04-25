@@ -54,4 +54,8 @@ void* vec_at(Vector* vec, size_t index) {
     return (char*) vec->data + index * vec->element_size;
 };
 
+bool vec_empty(Vector* vec) {     // const Vector *vec ??
+    if (!vec || vec->size == 0) {return true;} else {return false;}
+};
+
 
