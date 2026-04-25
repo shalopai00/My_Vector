@@ -19,5 +19,6 @@ Vector* vec_new(size_t capacity);
 void vec_free(Vector* vec);
 int vec_push(Vector* vec, const void* element);
 int vec_pop(Vector* vec);
+void* vec_at(Vector* vec, size_t index);
 
 #endif // MY_VECTOR_LIBRARY_H

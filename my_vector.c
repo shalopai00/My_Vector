@@ -49,4 +49,9 @@ int vec_pop(Vector* vec) {
     return 0;
 };
 
+void* vec_at(Vector* vec, size_t index) {
+    if (!vec || index>vec->size){return NULL;}
+    return (char*) vec->data + index * vec->element_size;
+};
+
 
