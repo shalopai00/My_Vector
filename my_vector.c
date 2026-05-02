@@ -83,7 +83,9 @@ int vec_shrink(Vector* vec) {
     }
     if (vec->size * 2 <= vec->capacity) {
         size_t new_capacity = vec->size;
-        if (vec->capacity < 4){ new_capacity = 4;}
+        if (new_capacity < 4) {
+            new_capacity = 4;
+        }
         void* same_data = realloc(vec->data, new_capacity * vec->element_size);
         if (same_data == NULL) { return -1; }
         vec->data = same_data;
