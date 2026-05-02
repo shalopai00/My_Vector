@@ -10,11 +10,11 @@ typedef struct{
     size_t element_size;
 } Vector;
 
-//геттеры
+
 size_t vec_capacity(const Vector* vec);
 size_t vec_size(const Vector* vec);
 void* vec_data(const Vector* vec);
-//*
+
 
 Vector* vec_new(size_t capacity);
 void vec_free(Vector* vec);
