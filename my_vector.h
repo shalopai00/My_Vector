@@ -24,5 +24,6 @@ void* vec_at(Vector* vec, size_t index);
 bool vec_empty(Vector* vec);
 int vec_reserve(Vector* vec, size_t capacity);
 void vec_clear(Vector* vec);
+int vec_shrink(Vector* vec);
 
 #endif // MY_VECTOR_LIBRARY_H

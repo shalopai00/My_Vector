@@ -73,4 +73,24 @@ void vec_clear(Vector* vec) {
     vec->size = 0;
 };
 
+int vec_shrink(Vector* vec) {
+    if (!vec){return -1;}
+    if (vec->size == 0) {
+        free(vec->data);
+        vec->data = NULL;
+        vec->capacity = 0;
+        return 0;
+    }
+    if (vec->size * 2 <= vec->capacity) {
+        size_t new_capacity = vec->size;
+        if (vec->capacity < 4){ new_capacity = 4;}
+        void* same_data = realloc(vec->data, new_capacity * vec->element_size);
+        if (same_data == NULL) { return -1; }
+        vec->data = same_data;
+        vec->capacity = new_capacity;
+    };
+    return 0;
+
+
+};
 
