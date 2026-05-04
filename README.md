@@ -46,6 +46,28 @@ int main() {
     return 0;
 }`
 ```
+## API
+
+| Function | Description |
+|----------|-------------|
+| `vec_new(element_size)` | Create a new empty vector |
+| `vec_free(vec)` | Free vector and its internal memory |
+| `vec_push(vec, element)` | Append element to the end (auto-resize) |
+| `vec_pop(vec)` | Remove last element (does not shrink capacity) |
+| `vec_size(vec)` | Return number of elements |
+| `vec_capacity(vec)` | Return current allocated capacity |
+| `vec_data(vec)` | Get raw pointer to internal array |
+| `vec_empty(vec)` | Check if vector is empty |
+| `vec_at(vec, index)` | Safe access: returns pointer or NULL |
+| `vec_front(vec)` | Get pointer to first element (or NULL) |
+| `vec_back(vec)` | Get pointer to last element (or NULL) |
+| `vec_reserve(vec, cap)` | Ensure capacity at least `cap` |
+| `vec_shrink(vec)` | Reduce capacity to fit size (if beneficial) |
+| `vec_clear(vec)` | Remove all elements, keep allocated memory |
+| `vec_insert(vec, index, element)` | Insert element at `index` (shifts right) |
+| `vec_erase(vec, index)` | Erase element at `index` (shifts left) |
+| `vec_resize(vec, new_size)` | Change size (truncate or extend with zeros) |
+
 ## Installation
 
 ### Quick Installation
