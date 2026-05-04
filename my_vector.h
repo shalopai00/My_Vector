@@ -25,5 +25,8 @@ bool vec_empty(Vector* vec);
 int vec_reserve(Vector* vec, size_t capacity);
 void vec_clear(Vector* vec);
 int vec_shrink(Vector* vec);
+void* vec_front(Vector* vec);
+void* vec_back(Vector* vec);
+int vec_insert(Vector* vec, size_t index, const void* element);
 
 #endif // MY_VECTOR_LIBRARY_H

@@ -92,7 +92,30 @@ int vec_shrink(Vector* vec) {
         vec->capacity = new_capacity;
     };
     return 0;
+};
 
+void* vec_front(Vector* vec) {
+    if (!vec || vec->size == 0) {return NULL;}
+    return vec_data(vec);
+};
 
+void* vec_back(Vector* vec) {
+    if (!vec || vec->size == 0){return NULL;}
+    return (char*) vec_data(vec)+(vec->size - 1) * vec->element_size;
+};
+
+int vec_insert(Vector* vec, size_t index, const void* element) {
+    if (!vec){return -1;}
+    if (index > vec->size) {return -1;}
+    if (vec->size >= vec->capacity) {
+        size_t new_cap = vec->capacity == 0 ? 4 : vec->capacity * 2;
+        if (vec_reserve(vec, new_cap) != 0) return -1;
+    }
+    char* data = (char*) vec->data;
+    memmove(data + (index+1)*vec->element_size, data + (index) * vec->element_size,
+        (vec->size - index) * vec->element_size);
+    vec->size ++;
+    memcpy(data+index*vec->element_size, element, vec->element_size);
+    return 0;
 };
 
