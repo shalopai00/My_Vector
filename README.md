@@ -65,7 +65,7 @@ int main() {
 | `vec_shrink(vec)` | Reduce capacity to fit size (if beneficial) |
 | `vec_clear(vec)` | Remove all elements, keep allocated memory |
 | `vec_insert(vec, index, element)` | Insert element at `index` (shifts right) |
-| `vec_erase(vec, index)` | Erase element at `index` (shifts left) |
+
 
 
 ## Installation
