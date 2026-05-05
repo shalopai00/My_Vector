@@ -94,6 +94,7 @@ int vec_shrink(Vector* vec) {
     if (vec->size * 2 <= vec->capacity) {
 
         size_t new_capacity = vec->size;
+        
         if (new_capacity < 4) {
             new_capacity = 4;
         }
