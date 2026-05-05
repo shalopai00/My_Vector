@@ -121,5 +121,5 @@ int vec_insert(Vector* vec, size_t index, const void* element) {
 
 int vec_push_front(Vector *vec, const void *element){
     if (!vec || !element){return -1;}
-    vec_insert(vec, 0, element);
+    return vec_insert(vec, 0, element);
 };

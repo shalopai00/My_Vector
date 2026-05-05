@@ -1,6 +1,5 @@
 #ifndef MY_VECTOR_LIBRARY_H
 #define MY_VECTOR_LIBRARY_H
-#include <cstddef>
 #include <stdbool.h>
 #include <stddef.h>
 
