@@ -136,7 +136,7 @@ int vec_insert(Vector* vec, size_t index, const void* element) {
 
     memmove(data + (index+1)*vec->element_size, data + (index) * vec->element_size,
         (vec->size - index) * vec->element_size);
-    vec->size ++;
+    vec->size++;
 
     memcpy(data+index*vec->element_size, element, vec->element_size);
     return 0;
@@ -156,7 +156,7 @@ int vec_erase(Vector* vec, size_t index){
 
     memmove(data + index * vec->element_size, data + (index+1) * vec->element_size,
         (vec->size - index - 1) * vec->element_size);
-    vec->size --;
+    vec->size--;
 
     return 0;
 
