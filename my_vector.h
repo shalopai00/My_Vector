@@ -1,5 +1,6 @@
 #ifndef MY_VECTOR_LIBRARY_H
 #define MY_VECTOR_LIBRARY_H
+#include <cstddef>
 #include <stdbool.h>
 #include <stddef.h>
 
@@ -28,5 +29,7 @@ int vec_shrink(Vector* vec);
 void* vec_front(Vector* vec);
 void* vec_back(Vector* vec);
 int vec_insert(Vector* vec, size_t index, const void* element);
+int vec_push_front(Vector* vec, const void* element);
+void vec_swap(Vector* vec_a, Vector vec_b);
 
 #endif // MY_VECTOR_LIBRARY_H
