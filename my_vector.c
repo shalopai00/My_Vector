@@ -1,5 +1,6 @@
 #include "my_vector.h"
 
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,7 +38,9 @@ int vec_push(Vector* vec, const void* element) {
         vec->data = new_data;
         vec->capacity = new_capacity;
     }
+
     char* dest = (char *) vec->data + vec->size * vec->element_size;
+
     memcpy(dest, element, vec->element_size);
     vec->size++;
     return 0;
@@ -45,12 +48,14 @@ int vec_push(Vector* vec, const void* element) {
 
 int vec_pop(Vector* vec) {
     if (!vec || vec->size == 0) return -1;
+
     vec->size--;
     return 0;
 };
 
 void* vec_at(Vector* vec, size_t index) {
     if (!vec || index>vec->size){return NULL;}
+
     return (char*) vec->data + index * vec->element_size;
 };
 
@@ -60,9 +65,12 @@ bool vec_empty(Vector* vec) {     // const Vector *vec ??
 
 int vec_reserve(Vector* vec, size_t capacity) {
     if (!vec || vec->capacity>capacity){return -1;}
+
     size_t new_capacity = capacity;
     void *same_data = realloc(vec->data, new_capacity * vec->element_size);
+
     if (same_data == NULL) { return -1; }
+
     vec->data = same_data;
     vec->capacity = new_capacity;
     return 0;
@@ -75,51 +83,81 @@ void vec_clear(Vector* vec) {
 
 int vec_shrink(Vector* vec) {
     if (!vec){return -1;}
+
     if (vec->size == 0) {
         free(vec->data);
         vec->data = NULL;
         vec->capacity = 0;
         return 0;
     }
+
     if (vec->size * 2 <= vec->capacity) {
+
         size_t new_capacity = vec->size;
         if (new_capacity < 4) {
             new_capacity = 4;
         }
+
         void* same_data = realloc(vec->data, new_capacity * vec->element_size);
+
         if (same_data == NULL) { return -1; }
+
         vec->data = same_data;
         vec->capacity = new_capacity;
     };
+
     return 0;
 };
 
 void* vec_front(Vector* vec) {
     if (!vec || vec->size == 0) {return NULL;}
+
     return vec_data(vec);
 };
 
 void* vec_back(Vector* vec) {
     if (!vec || vec->size == 0){return NULL;}
+
     return (char*) vec_data(vec)+(vec->size - 1) * vec->element_size;
 };
 
 int vec_insert(Vector* vec, size_t index, const void* element) {
     if (!vec){return -1;}
+
     if (index > vec->size) {return -1;}
+
     if (vec->size >= vec->capacity) {
+
         size_t new_cap = vec->capacity == 0 ? 4 : vec->capacity * 2;
         if (vec_reserve(vec, new_cap) != 0) return -1;
     }
+
     char* data = (char*) vec->data;
+
     memmove(data + (index+1)*vec->element_size, data + (index) * vec->element_size,
         (vec->size - index) * vec->element_size);
     vec->size ++;
+
     memcpy(data+index*vec->element_size, element, vec->element_size);
     return 0;
 };
 
 int vec_push_front(Vector *vec, const void *element){
     if (!vec || !element){return -1;}
+
     return vec_insert(vec, 0, element);
+};
+
+int vec_erase(Vector* vec, size_t index){
+    if (!vec || index >= vec->size){return -1;}
+
+    char* data = (char*)vec->data;
+    size_t elem_size = vec->element_size;
+
+    memmove(data + index * vec->element_size, data + (index+1) * vec->element_size,
+        (vec->size - index - 1) * vec->element_size);
+    vec->size --;
+
+    return 0;
+
 };

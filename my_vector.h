@@ -29,6 +29,7 @@ void* vec_front(Vector* vec);
 void* vec_back(Vector* vec);
 int vec_insert(Vector* vec, size_t index, const void* element);
 int vec_push_front(Vector* vec, const void* element);
+int vec_erase(Vector* vec, size_t index);
 void vec_swap(Vector* vec_a, Vector vec_b);
 
 #endif // MY_VECTOR_LIBRARY_H
