@@ -94,7 +94,7 @@ int vec_shrink(Vector* vec) {
     if (vec->size * 2 <= vec->capacity) {
 
         size_t new_capacity = vec->size;
-        
+
         if (new_capacity < 4) {
             new_capacity = 4;
         }
@@ -160,5 +160,24 @@ int vec_erase(Vector* vec, size_t index){
     vec->size--;
 
     return 0;
+};
 
+void vec_swap(Vector* vec_a, Vector* vec_b) {
+  if (!vec_a || !vec_b) {return;}
+
+  void* temp_data = vec_a->data;
+  vec_a->data = vec_b->data;
+  vec_b->data = temp_data;
+
+  size_t temp_size = vec_a->size;
+  vec_a->size = vec_b->size;
+  vec_b->size = temp_size;
+
+  size_t temp_capacity = vec_a->capacity;
+  vec_a->capacity = vec_b->capacity;
+  vec_b->capacity = temp_capacity;
+
+  size_t temp_element_size = vec_a->element_size;
+  vec_a->element_size = vec_b->element_size;
+  vec_b->element_size = temp_element_size;
 };

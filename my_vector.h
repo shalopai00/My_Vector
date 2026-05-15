@@ -30,6 +30,7 @@ void* vec_back(Vector* vec);
 int vec_insert(Vector* vec, size_t index, const void* element);
 int vec_push_front(Vector* vec, const void* element);
 int vec_erase(Vector* vec, size_t index);
-void vec_swap(Vector* vec_a, Vector vec_b);
+void vec_swap(Vector* vec_a, Vector* vec_b);
+void vec_foreach(Vector* vec, void (*callback)(void* element));
 
 #endif // MY_VECTOR_LIBRARY_H
