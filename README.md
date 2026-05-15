@@ -62,9 +62,13 @@ int main() {
 | `vec_front(vec)` | Get pointer to first element (or NULL) |
 | `vec_back(vec)` | Get pointer to last element (or NULL) |
 | `vec_reserve(vec, cap)` | Ensure capacity at least `cap` |
-| `vec_shrink(vec)` | Reduce capacity to fit size (if beneficial) |
+| `vec_shrink(vec)` | Reduce capacity by half when size ≤ capacity/2 (min 4) |
 | `vec_clear(vec)` | Remove all elements, keep allocated memory |
 | `vec_insert(vec, index, element)` | Insert element at `index` (shifts right) |
+| `vec_push_front(vec, element)` | Insert element at beginning (shifts right, O(n)) |
+| `vec_erase(vec, index)` | Remove element at `index` (shifts left, O(n)) |
+| `vec_swap(a, b)` | Swap contents of two vectors (O(1)) |
+| `vec_foreach(vec, callback)` | Call function on every element ||
 
 
 
