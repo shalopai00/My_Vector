@@ -193,6 +193,6 @@ void vec_swap(Vector* a, Vector* b);
  * @param vec Pointer to the vector
  * @param callback Function pointer: void callback(void* element)
  */
-void for_each(Vector* vec, void (*callback)(void* element));
+void vec_foreach(Vector* vec, void (*callback)(void* element));
 
 #endif // MY_VECTOR_LIBRARY_H
