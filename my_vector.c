@@ -182,7 +182,7 @@ void vec_swap(Vector* vec_a, Vector* vec_b) {
   vec_b->element_size = temp_element_size;
 };
 
-void for_each(Vector* vec, void (*callback)(void *element)){
+void vec_foreach(Vector* vec, void (*callback)(void *element)){
     if (!vec || !callback) {return;}
 
     char* data = (char*)vec->data;
