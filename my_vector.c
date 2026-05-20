@@ -59,7 +59,7 @@ void* vec_at(Vector* vec, size_t index) {
     return (char*) vec->data + index * vec->element_size;
 };
 
-bool vec_empty(Vector* vec) {     // const Vector *vec ??
+bool vec_empty(const Vector* vec) {
     if (!vec || vec->size == 0) {return true;} else {return false;}
 };
 
@@ -153,7 +153,7 @@ int vec_erase(Vector* vec, size_t index){
     if (!vec || index >= vec->size){return -1;}
 
     char* data = (char*)vec->data;
-    size_t elem_size = vec->element_size;
+
 
     memmove(data + index * vec->element_size, data + (index+1) * vec->element_size,
         (vec->size - index - 1) * vec->element_size);
